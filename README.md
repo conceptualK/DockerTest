@@ -1,25 +1,9 @@
 
 ## **Using Docker Compose**
 
-### **1. Create `docker-compose.yml`**
-```yaml
-version: '3.8'
-services:
-  nginx:
-    image: nginx:latest
-    container_name: nginx-server
-    ports:
-      - "80:80"
-      - "81:81"
-      - "82:82"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./project1:/usr/share/nginx/project1
-      - ./project2:/usr/share/nginx/project2
-    restart: always
-```
 
-### **2. Run with Docker Compose**
+
+### ** Run with Docker Compose**
 Start the container with:
 ```bash
 docker-compose up -d
