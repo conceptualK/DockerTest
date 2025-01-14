@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  dotnet-app:
+    build:
+      context: .
+    container_name: restapi-dcs  # Specifies the container name
+    ports:
+      - "5004:5004"
+    volumes:
+      - ./publish:/app  # Mount the 'publish' folder into the container
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    working_dir: /app
+    command: dotnet run  # Runs the app using dotnet run

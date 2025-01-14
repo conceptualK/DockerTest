@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    width: 40%;
+    padding: 10px;
+    height: 45px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    margin-top: 20px;
+    padding-top: 50px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-end {
+    text-align: right
+}
+
+.txt-less {
+    border: 1px solid #555;
+    width: 97%;
+    font-size: 24px;
+}
+
+.btn-send {
+    position: relative;
+    background-color: #198754;
+    color: #fff;
+    left: 10%;
+    width: 80%;
+    border: 0px solid;
+}
+
