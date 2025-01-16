@@ -1,15 +1,30 @@
 version: "3.8"
 
 services:
+# PROJECT01 ############################################################################
   dotnet-app:
-    build:
-      context: .
-    container_name: restapi-dcs  # Specifies the container name
+    image: mcr.microsoft.com/dotnet/sdk:8.0  # Use the .NET SDK image for building the app
+    container_name: restapi-dcs
     ports:
       - "5004:5004"
     volumes:
-      - ./publish:/app  # Mount the 'publish' folder into the container
+      - ./documents-control/publish:/restapi/dcs  # Mount your project folder into the container
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-    working_dir: /app
-    command: dotnet run  # Runs the app using dotnet run
+    working_dir: /restapi/dcs
+    command: >
+      sh -c "dotnet /restapi/dcs/RestAPI.dll" 
+# PROJECT02 ############################################################################
+  dotnet-app2:
+    image: mcr.microsoft.com/dotnet/sdk:8.0  # Use the .NET SDK image for building the app
+    container_name: restapi-packing
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./packing/publish:/restapi/packing  # Mount your project folder into the container
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    working_dir: /restapi/packing
+    command: >
+      sh -c "dotnet /restapi/packing/RestAPI.dll" 
+
